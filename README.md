@@ -107,7 +107,8 @@ graph TD
 ├── database/                         # Modelagem e scripts SQL
 │   └── historico_agricola.sql
 ├── images/                           # Imagens, capturas de tela e gráficos da aplicação
-│   └── 
+│   ├── dashboard_interface.png
+│   └── oracle_ingestao.png
 ├── CAp 1.py                          # Aplicação principal (Dashboard Streamlit)
 └── README.md                         # Documentação oficial do projeto
 ├── database_setup.py                 # Script de carga inicial (ingestão de dados)
