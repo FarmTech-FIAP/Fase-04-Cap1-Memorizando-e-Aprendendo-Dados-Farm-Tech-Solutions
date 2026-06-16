@@ -106,8 +106,8 @@ graph TD
 │   └── historico_agricola.csv
 ├── database/                         # Modelagem e scripts SQL
 │   └── historico_agricola.sql
-├── iot/                              # Código de simulação C++ (Wokwi)
-│   └── sensor_iot.ino
+├── images/                           # Imagens, capturas de tela e gráficos da aplicação
+│   └── 
 ├── CAp 1.py                          # Aplicação principal (Dashboard Streamlit)
 └── README.md                         # Documentação oficial do projeto
 ├── database_setup.py                 # Script de carga inicial (ingestão de dados)
