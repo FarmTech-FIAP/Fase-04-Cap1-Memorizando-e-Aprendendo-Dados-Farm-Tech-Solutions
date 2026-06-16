@@ -6,7 +6,7 @@
 
 <br>
 
-# Challenge-Sompo-Seguros — AgroRisk Tracker (Sprint 2)
+# Cap 1 - Memorizando e Aprendendo com os Dados da Farm Tech Solutions
 
 ## 👨‍🎓 Integrantes: 
 - <a href="https://www.linkedin.com/">Arthur Prudêncio Soares — RM569295</a>
@@ -49,20 +49,23 @@ O projeto utiliza uma estrutura lógica e relacional baseada nos conceitos de Co
 
 Dicionário de Dados do Ecossistema
 
-| Nome da Coluna / Campo	| Tipo de Dado | Descrição | Exemplo |
+| Nome da Coluna / Campo | Tipo de Dado | Descrição | Exemplo |
 |:---|:---|:---|:---|
-| `id_leitura` |	INTEGER	| Chave primária identificadora da leitura do sensor	| `1024` |
-| `umidade_solo_pct` |	REAL	| Percentual de umidade do solo capturado (0 a 100%)	| `65.40` |
-| `ph_solo` |	REAL	| Escala de pH do solo monitorado (0 a 14)	| `6.2` |
-| `volume_irrigacao_l` |	REAL	| Variável alvo/predita: Volume de água recomendado em litros	| `450.00` |
-| `rendimento_esperado` |	REAL	| Variável alvo/predita: Estimativa de sacas por hectare	| `78.50` |
+| `umidade_solo` | NUMERIC(10,2) | Percentual de umidade do solo capturado (0 a 100%) | `65.40` |
+| `ph_solo` | NUMERIC(10,2) | Escala de pH do solo monitorado (0 a 14) | `6.50` |
+| `nivel_n` | INTEGER | Presença de Nitrogênio detectada pelo sensor (0 ou 1) | `1` |
+| `nivel_p` | INTEGER | Presença de Fósforo detectada pelo sensor (0 ou 1) | `0` |
+| `nivel_k` | INTEGER | Presença de Potássio detectada pelo sensor (0 ou 1) | `1` |
+| `volume_irrigacao_litros` | NUMERIC(10,2) | Variável predita: Volume de água recomendado em litros | `45.22` |
+| `produtividade_kg` | NUMERIC(10,2) | Variável predita: Estimativa de rendimento da safra em kg | `120.50` |
 
 ## 5. Arquitetura da Solução & Pipeline de Dados
 O fluxo de dados integra a coleta na ponta (IoT), a persistência relacional e a camada preditiva que abastece a interface do usuário:
 
+```mermaid
 graph TD
     subgraph "Camada de Captura & Persistência (IoT / SQL)"
-        A[Sensores Wokwi / ESP32] -->|Ingestão de Dados| B[(Banco de Dados SQL)]
+        A[Sensores Wokwi / ESP32] -->|Ingestão de Dados| B[(Banco de Dados Oracle SQL)]
     end
 
     subgraph "Camada de Machine Learning (Scikit-Learn)"
@@ -79,6 +82,7 @@ graph TD
     style B fill:#f96,stroke:#333,stroke-width:2px
     style C fill:#bbf,stroke:#333,stroke-width:2px
     style E fill:#bfb,stroke:#333,stroke-width:2px
+```
 
 ## 6. Interface e Resultados do Dashboard (Streamlit)
   A interface interativa foi construída para traduzir a complexidade estatística dos modelos de regressão em respostas visuais diretas para o negócio do agronegócio:
@@ -89,7 +93,9 @@ graph TD
   
   Figura 1: Interface do Dashboard Streamlit exibindo tendências de produtividade e previsões.
   
-  Ingestão de Dados e Atualização AutomáticaAbaixo, a validação do pipeline de atualização contínua dos dados simulados integrados ao modelo preditivo.
+  Ingestão de Dados e Conexão Relacional:
+
+  Demonstração da arquitetura de integração entre o ecossistema Python (Pandas/Streamlit) e o banco de dados Oracle Database executado em container Docker, evidenciando o consumo e tratamento das tabelas estruturadas de histórico agrícola em tempo real.
   
   Figura 2: Monitoramento da ingestão automática de dados originados dos sensores.
 
@@ -99,12 +105,10 @@ graph TD
 ├── data/                             # Datasets utilizados para treino e validação
 ├── database/                         # Modelagem e scripts SQL (Cognitive Data Science)
 ├── images/                           # Imagens, capturas de tela e gráficos da aplicação
-├── models/                           # Arquivos dos modelos de regressão salvos (.pkl / .joblib)
-├── notebooks/                        # Análise exploratória e validação das métricas (MAE, R²)
-├── src/                              # Código-fonte do projeto
-│   ├── app.py                        # Aplicação principal do Dashboard em Streamlit
-│   └── iot/                          # Código de simulação dos sensores (Wokwi / C++)
-├── requirements.txt                  # Dependências das bibliotecas Python (Scikit-Learn, etc)
+├── notebooks/                        # Análise exploratória e validação de métricas
+├── iot/                              # Código de simulação dos sensores (Wokwi / C++)
+├── CAp 1.py                          # Aplicação principal do Dashboard em Streamlit
+├── requirements.txt                  # Dependências das bibliotecas Python
 └── README.md                         # Documentação oficial do projeto
 ```
 ## 8. Como Executar o Projeto
@@ -124,18 +128,17 @@ cd farmtech-solutions
 2 - Configurar o Ambiente Virtual e Dependências:
 ```text
 Bash
-python -m venv venv
-# Ativação no Windows:
-.\venv\Scripts\activate
-# Ativação no Linux/Mac:
-source venv/bin/activate
+# No seu MacBook M4 (macOS), utilize:
+python3 -m venv .venv
+source .venv/bin/activate
 
-pip install -r requirements.txt
+# Instalação das dependências necessárias:
+pip install streamlit pandas numpy matplotlib seaborn scikit-learn oracledb
 ```
 3 - Executar a Interface do Dashboard:
 ```text
 Bash
-streamlit run src/app.py
+streamlit run "CAp 1.py"
 ```
 
 ## 9. Apresentação em Vídeo e Entregáveis
