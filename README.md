@@ -91,7 +91,7 @@ graph TD
   
   A tela principal do dashboard apresenta a aderência do modelo (Métricas de Erro e $R^2$) e gráficos dinâmicos relacionando umidade, pH e produtividade.
 
-  <img src="images/dashboard_interface.png" width=50% height=50%></a>
+  <img src="images/dashboard_interface.png" width=40% height=40%></a>
   
   Figura 1: Interface do Dashboard Streamlit exibindo tendências de produtividade e previsões.
   
@@ -99,7 +99,7 @@ graph TD
 
   Demonstração da arquitetura de integração entre o ecossistema Python (Pandas/Streamlit) e o banco de dados Oracle Database executado em container Docker, evidenciando o consumo e tratamento das tabelas estruturadas de histórico agrícola em tempo real.
 
-<img src="images/oracle_ingestao.png" width=50% height=50%></a>
+<img src="images/oracle_ingestao.png" width=40% height=40%></a>
 
   
   Figura 2: Monitoramento da ingestão automática de dados originados dos sensores.
