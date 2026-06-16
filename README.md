@@ -103,13 +103,15 @@ graph TD
 ## 7. Estrutura de Pastas do Repositório
 ```text
 ├── data/                             # Datasets utilizados para treino e validação
-├── database/                         # Modelagem e scripts SQL (Cognitive Data Science)
-├── images/                           # Imagens, capturas de tela e gráficos da aplicação
-├── notebooks/                        # Análise exploratória e validação de métricas
-├── iot/                              # Código de simulação dos sensores (Wokwi / C++)
-├── CAp 1.py                          # Aplicação principal do Dashboard em Streamlit
-├── requirements.txt                  # Dependências das bibliotecas Python
+│   └── historico_agricola.csv
+├── database/                         # Modelagem e scripts SQL
+│   └── historico_agricola.sql
+├── iot/                              # Código de simulação C++ (Wokwi)
+│   └── sensor_iot.ino
+├── CAp 1.py                          # Aplicação principal (Dashboard Streamlit)
 └── README.md                         # Documentação oficial do projeto
+├── database_setup.py                 # Script de carga inicial (ingestão de dados)
+├── requirements.txt                  # Dependências das bibliotecas Python
 ```
 ## 8. Como Executar o Projeto
 Pré-requisitos
