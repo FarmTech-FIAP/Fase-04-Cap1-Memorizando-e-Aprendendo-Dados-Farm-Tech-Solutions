@@ -152,3 +152,5 @@ streamlit run "CAp 1.py"
 
 ## 9. Apresentação em Vídeo e Entregáveis
 Os vídeos demonstrativos detalhando o domínio técnico, pipelines implementados e funcionamento da solução estão disponíveis nos links abaixo:
+
+👉 ASSISTIR VÍDEO DO PROJETO https://youtu.be/z62StMK42Ew
