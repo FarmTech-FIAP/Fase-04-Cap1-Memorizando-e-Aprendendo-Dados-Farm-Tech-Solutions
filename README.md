@@ -114,9 +114,10 @@ graph TD
 ├── images/                           # Imagens, capturas de tela e gráficos da aplicação
 │   ├── dashboard_interface.png
 │   └── oracle_ingestao.png
+├── src/
+│   └── database_setup.py             # Script de carga inicial (ingestão de dados)
 ├── CAp 1.py                          # Aplicação principal (Dashboard Streamlit)
 └── README.md                         # Documentação oficial do projeto
-├── database_setup.py                 # Script de carga inicial (ingestão de dados)
 ├── requirements.txt                  # Dependências das bibliotecas Python
 ```
 ## 8. Como Executar o Projeto
